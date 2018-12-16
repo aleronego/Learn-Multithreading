@@ -8,18 +8,20 @@ using namespace std;
 mutex mtx;
 void PrintBox(char ch)
 {
-	mtx.lock();
-	for(int i = 0; i < 10; ++i)
+	
 	{
-		for(int j = 0; j < 10; ++j)
+		lock_guard<mutex> guard(mtx);
+		for(int i = 0; i < 10; ++i)
 		{
-			cout << ch;
-			this_thread:: sleep_for(chrono::milliseconds(20));
+			for(int j = 0; j < 10; ++j)
+			{
+				cout << ch;
+				this_thread:: sleep_for(chrono::milliseconds(20));
+			}
+			cout << endl;
 		}
-		cout << endl;
+		cout << endl << endl;
 	}
-	cout << endl << endl;
-	mtx.unlock();
 }
 
 int main()
