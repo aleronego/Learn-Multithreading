@@ -5,13 +5,11 @@ using namespace std;
 
 void Work()
 {
-	for(int i = 0; i < 10; ++i)
-	{
-		cout << "T id " << this_thread::get_id() << ", i = " << i << endl;
-		this_thread::sleep_for(chrono::milliseconds(1000));
-	}
+    for (int i = 0; i < 10; ++i) {
+        cout << "T id " << this_thread::get_id() << ", i = " << i << endl;
+        this_thread::sleep_for(chrono::milliseconds(1000));
+    }
 }
-
 
 int main()
 {
